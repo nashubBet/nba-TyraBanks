@@ -1,0 +1,114 @@
+# 📱 NBA Edge — iPhone Setup Guide
+# Deploy your model to the cloud, access it from your phone
+
+═══════════════════════════════════════════════════════
+  STEP 1 — PREP YOUR FILES
+═══════════════════════════════════════════════════════
+
+Make sure you have these 4 files in one folder:
+  ✅ nba_betting_model.py   (the model)
+  ✅ app.py                 (the web app)
+  ✅ requirements.txt       (dependencies)
+  ✅ Procfile               (tells Railway how to start)
+
+
+═══════════════════════════════════════════════════════
+  STEP 2 — CREATE A FREE GITHUB REPO
+═══════════════════════════════════════════════════════
+
+1. Go to github.com → Sign up (free)
+2. Click "New repository"
+3. Name it: nba-betting-model
+4. Click "Create repository"
+5. Upload all 4 files by clicking "uploading an existing file"
+6. Click "Commit changes"
+
+
+═══════════════════════════════════════════════════════
+  STEP 3 — DEPLOY TO RAILWAY (free tier)
+═══════════════════════════════════════════════════════
+
+1. Go to railway.app → Sign up with GitHub
+2. Click "New Project" → "Deploy from GitHub repo"
+3. Select your nba-betting-model repo
+4. Railway auto-detects Python — click "Deploy"
+5. Wait ~3 minutes for first build
+
+Set your environment variables (Settings → Variables):
+  ODDS_API_KEY  = your key from the-odds-api.com
+  BANKROLL      = 1000  (or whatever you're working with)
+
+6. Go to Settings → Networking → Generate Domain
+7. You'll get a URL like: nba-model-abc123.railway.app
+   → THIS IS YOUR APP URL 🎉
+
+
+═══════════════════════════════════════════════════════
+  STEP 4 — ADD TO YOUR iPHONE HOME SCREEN
+═══════════════════════════════════════════════════════
+
+1. Open Safari on your iPhone
+2. Go to your Railway URL (e.g. nba-model-abc123.railway.app)
+3. Tap the Share button (box with arrow at bottom)
+4. Scroll down → tap "Add to Home Screen"
+5. Name it "NBA Edge" → tap Add
+
+Now it looks and feels like a real app on your home screen!
+Open it every morning before games to see today's picks. 🏀
+
+
+═══════════════════════════════════════════════════════
+  STEP 5 — GET YOUR FREE ODDS API KEY
+═══════════════════════════════════════════════════════
+
+1. Go to the-odds-api.com
+2. Click "Get API Key" → sign up free
+3. Free tier = 500 requests/month (plenty for daily use)
+4. Copy your key
+5. Paste it in Railway → Settings → Variables → ODDS_API_KEY
+
+
+═══════════════════════════════════════════════════════
+  COSTS
+═══════════════════════════════════════════════════════
+
+  Railway free tier  : $5 credit/month (usually enough)
+  Odds API free tier : 500 req/month = free
+  Total              : $0 to start, ~$5/month if you scale up
+
+
+═══════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════
+
+App won't load?
+  → Check Railway logs (your project → Deployments → View Logs)
+  → Common fix: make sure all 4 files are in the repo root
+
+Picks show "Connection Error"?
+  → Your Railway app may be sleeping (free tier)
+  → Open the Railway URL directly in browser first to wake it
+
+No picks showing?
+  → Check ODDS_API_KEY is set correctly in Railway variables
+  → App works with demo data even without a key
+
+Model too slow on first load?
+  → Normal — model trains on startup (~30 sec first time)
+  → After that, responses are fast
+
+
+═══════════════════════════════════════════════════════
+  HOW TO USE IT DAILY
+═══════════════════════════════════════════════════════
+
+Morning routine (takes 2 minutes):
+  1. Open NBA Edge from your home screen
+  2. Tap the refresh button (↻) to load today's games
+  3. Look for 🔥 Hot picks — these have the highest edge
+  4. Check the $ amount shown — that's your Kelly-sized bet
+  5. Only bet games with a badge (skip "No edge" games)
+  6. Log your result after the game
+
+Track your bets in a Notes app or spreadsheet.
+The goal: beat 52.38% win rate over 50+ bets.
